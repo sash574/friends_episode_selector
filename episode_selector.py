@@ -26,8 +26,7 @@ def filter_button_click(event):
     df = pd.read_csv(filepath)
 
     # get selected filter option
-    filtered_season = season_cb.get()                  # output of type string
-    print(filtered_season)
+    filtered_season = season_cb.get()
 
     # filter dataframe if needed
     if filtered_season != 'All':
