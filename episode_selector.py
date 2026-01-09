@@ -20,12 +20,16 @@ def filter_button_click():
 
     global df
 
+    # open data
+    filepath = 'data/FriendsEpisodes.csv'
+    df = pd.read_csv(filepath)
+
     # get selected filter option
     filtered_season = season_cb.get()                  # output of type string
     print(filtered_season)
 
     # filter dataframe if needed
-    if filtered_season != 'Select a season' and filtered_season != 'All':
+    if filtered_season != 'All':
         season_num = int(filtered_season)
         df = df[df['season'] == season_num]
 
@@ -38,7 +42,7 @@ def selector_button_click():
     Works for both the filtered and non-filtered dataframe.
     '''
 
-    print(df)
+    global df
 
     # randomly select episode number
     random_range_low = df['episode'].iloc[0]
@@ -81,6 +85,8 @@ def selector_button_click():
     return episode_details
 
 def selector_button_click_popup():
+
+    global df
 
     # randomly select episode number; no filter
     random_range_low = df['episode'].iloc[0]
@@ -200,6 +206,7 @@ tkinter.Label(filter_frame, text = 'Select a season:', font=('TkDefaultFont', 10
 season_options = list(range(1,11))                          # dropdown options 
 season_options.insert(0, 'All')
 season_cb = ttk.Combobox(filter_frame, state='normal', values=season_options)
+season_cb.current(0)
 # season_cb.set('Select a season')
 season_cb.pack(side='left')
 
