@@ -24,4 +24,5 @@ The program also contains an option to display the chosen episode and its detail
 - [x] randomized episode selection
 - [x] create GUI
 - [x] pipe requirements.txt
-- [ ] code filtered, randomized episode selection (i.e. from a specific season or based on contents of the description, specific directors etc.)
+- [x] season filter
+- [ ] advanced filter options (i.e. based on contents of the description, specific directors etc.)
