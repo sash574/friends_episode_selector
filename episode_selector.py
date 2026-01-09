@@ -75,7 +75,7 @@ def selector_button_click():
         )
 
         episode_details = (
-            f'\nTitle: {title}\n'
+            f'Title: {title}\n'
             f'Description: {description}\n\n'
             f'Director: {director}\n'
             f'Writer: {writer}\n'
@@ -84,8 +84,8 @@ def selector_button_click():
 
         more_information = f'More Information: {link}'
 
-    selection_header_label.config(text=selection_header, font='TkDefaultFont 12 bold', bg="#9244B1", pady=15)
-    chosen_episode_label.config(text=chosen_episode, bg="#9244B1", font='TkDefaultFont 11')
+    selection_header_label.config(text=selection_header, font='TkDefaultFont 12 bold', bg="#9244B1", pady=5)
+    chosen_episode_label.config(text=chosen_episode, bg="#9244B1", font='TkDefaultFont 11', pady=15)
     episode_label.config(text=episode_details, bg="#9244B1", font='TkDefaultFont 10')
     more_information_label.config(text=more_information, bg="#9244B1", font='TkDefaultFont 8 italic', pady=10)
     closing_label.config(text='Are you ready to enter the Friends-universe? Have fun!\nAnd if not: Just click the button again to select another episode or apply filters.', font='TkDefaultFont 10 bold', pady=10)
