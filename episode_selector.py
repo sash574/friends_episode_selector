@@ -1,28 +1,56 @@
 import pandas as pd
 import random
 import tkinter
+from tkinter import ttk
 import tkinter.messagebox
 from PIL import Image, ImageTk
 
+# open data
+filepath = 'data/FriendsEpisodes.csv'
+df = pd.read_csv(filepath)
 
 ##### main algorithms ######
 
-def button_click():
+def filter_button_click():
 
-    # open data
-    filepath = 'data/FriendsEpisodes.csv'
-    df = pd.read_csv(filepath)
+    '''
+    Gets filtered values, then filters dataframe accordingly.
+    Returns dataframe as "df" (same name as original dataframe) to then be used as the new main dataframe.
+    '''
 
-    # randomly select episode number; no filter
-    random_range = len(df)
-    random_episode_number = random.randrange(1, random_range + 1)
+    global df
+
+    # get selected filter option
+    filtered_season = season_cb.get()                  # output of type string
+    print(filtered_season)
+
+    # filter dataframe if needed
+    if filtered_season != 'Select a season' and filtered_season != 'All':
+        season_num = int(filtered_season)
+        df = df[df['season'] == season_num]
+
+    return df
+
+def selector_button_click():
+
+    '''
+    Chooses a random episode number and then returns the details for the chosen episode. 
+    Works for both the filtered and non-filtered dataframe.
+    '''
+
+    print(df)
+
+    # randomly select episode number
+    random_range_low = df['episode'].iloc[0]
+    random_range_high = df['episode'].iloc[-1]
+    random_episode_number = random.randrange(random_range_low, random_range_high)
 
     ## find the episode in the DataFrame
     df_episode = df[df['episode'] == random_episode_number]
 
     ## check if the episode DataFrame is empty, otherwise print episode details
     if df_episode.empty:
-        episode_details = f'Episode number {random_episode_number} not found.'
+        episode_details = f'\nEpisode number {random_episode_number} not found.'
 
     else:
         df_episode = df_episode.iloc[0]
@@ -50,15 +78,14 @@ def button_click():
     episode_label.config(text=episode_details)
     closing_label.config(text='\nAre you ready to enter the Friends-universe? Have fun!\nAnd if not: Just click the button again to select another episode or apply filters.')
 
-def button_click_popup():
+    return episode_details
 
-    # open data
-    filepath = 'data/FriendsEpisodes.csv'
-    df = pd.read_csv(filepath)
+def selector_button_click_popup():
 
     # randomly select episode number; no filter
-    random_range = len(df)
-    random_episode_number = random.randrange(random_range)
+    random_range_low = df['episode'].iloc[0]
+    random_range_high = df['episode'].iloc[-1]
+    random_episode_number = random.randrange(random_range_low, random_range_high)
 
     ## find the episode in the DataFrame
     df_episode = df[df['episode'] == random_episode_number]
@@ -90,6 +117,8 @@ def button_click_popup():
         )
 
     tkinter.messagebox.showinfo('Chosen Episode Details',  episode_details, detail=f'More Information: {link}', icon='info')
+
+    return episode_details
 
 
 ##### helper functions for design implementations #####
@@ -158,10 +187,32 @@ label_text = 'Welcome to the episode selector for the popular sitcom Friends.\n\
 introduction_text = tkinter.Label(root, text=label_text, anchor='center', fg='darkblue', wraplength=600)
 introduction_text.pack()
 
+# filter buttons + save button
+
+    # create a frame for the filter options
+filter_frame = tkinter.Frame(root)
+filter_frame.pack(anchor='center') 
+
+    # label for combobox
+tkinter.Label(filter_frame, text = 'Select a season:', font=('TkDefaultFont', 10)).pack(side='left')
+
+    # combobox
+season_options = list(range(1,11))                          # dropdown options 
+season_options.insert(0, 'All')
+season_cb = ttk.Combobox(filter_frame, state='normal', values=season_options)
+# season_cb.set('Select a season')
+season_cb.pack(side='left')
+
+### season_cb.bind('<<ComboboxSelected>>', filter_button_click())
+
+    # button to display selection  
+filter_button = tkinter.Button(filter_frame, text='Apply filters', command=filter_button_click)
+filter_button.pack(side='left')
+
 # button for episode selection 
     ## change to command=button_click_popup for popup instead of label text display of the episode details
-button = tkinter.Button(root, text='Click me to select an episode!', bg='orange', fg='white', activebackground='yellow', width=50, command=button_click)
-button.pack()
+selector_button = tkinter.Button(root, text='Click to select an episode!', bg='orange', fg='white', activebackground='yellow', width=50, command=selector_button_click)
+selector_button.pack()
 
     # episode details (filled after button click)
 episode_details = ''
