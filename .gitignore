@@ -4,7 +4,8 @@ data_exploration.ipynb
 # notes on further ideas
 ideas_for_GUI.py
 
-# irrelevant files
+# irrelevant files and folders
 data/FriendsScripts.csv
 old_images/
+icon/old_versions/
 friends_selector.sh
