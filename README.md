@@ -2,7 +2,8 @@
 
 This is a fun little project I implemented because I am a big fan of the Friends sitcom. Since the TV show is my all-time favorite comfort series, I wanted to implement a little episode selector to have some fun with choosing what episodes to watch.
 
-![Image 1: GUI - Main Window](images/main_window.png)
+![Image 1: GUI - Main Window](images/main_window.png)    
+_Image 1: GUI - Main Window_
 
 Also, this was my first dive into GUI development (in general and with Tkinter), so I took it as a learning opportunity - but do not expect professional or perfect code here.
 
@@ -17,7 +18,8 @@ The repository contains a `requirements.txt` file that can be run (ideally in a 
 Afterwards, the program works by simply running the main Python script `episode_selector.py`. This then opens a graphical user interface (= GUI) where one can randomly chose an episode to watch and play around with an image gallery.    
 The program also contains an option to display the chosen episode and its details in a pop-up window instead of in the main window. You can find more information on this in the main code file.
 
-![Image 2: GUI - Main Window After Selecting an Episode](images/main_window_after_buttonclick.png)
+![Image 2: GUI - Main Window After Selecting an Episode](images/main_window_after_buttonclick.png)    
+_Image 2: GUI - Main Window After Selecting an Episode_
 
 ### Create Application Launcher Icon (Linux Ubuntu)
 
@@ -36,7 +38,10 @@ Furthermore, the repository contains a template for a shell skript that runs the
     Icon=#pathway to the application icon (i.e. ...images/application_icon2.png; included in the repository)
     ```
 
-After saving and exiting the .desktop file, it should automatically and within seconds appear in the menu system and be searchable. 
+After saving and exiting the .desktop file, it should automatically and within seconds appear in the menu system and be searchable.
+
+![Image 3: Application Launcher Icon](images/Application_Icon_Example.png)    
+_Image 3: Application Launcher Icon_
 
 ## To Dos
 
