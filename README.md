@@ -10,7 +10,7 @@ The data used is from Kaggle: https://www.kaggle.com/datasets/thebumpkin/ultimat
 
 It contains information on the season, episode number (both seasonally and overall), the episodes title and description as well as the director, the writer, the air date and a link to the IMDb page with further information.
 
-## Manual Implementation
+## Manual Installation
 
 The repository contains a `requirements.txt` file that can be run (ideally in a program-specific virtual environment) to install all needed packages. Also, you need to ensure that Tkinter works on your machine (should be installed already with your Python version, otherwise: sudo apt install python3-tk (Linux Ubuntu)). 
 
