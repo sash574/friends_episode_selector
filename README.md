@@ -23,7 +23,7 @@ The program also contains an option to display the chosen episode and its detail
 
 Furthermore, the repository contains a template for a shell skript that runs the program. This can then be used to create a new application launcher icon. To do this, follow these steps:
 
-1. Create a file with a .desktop extension in your `~/.local/share/applications` directory, for example `~/.local/share/applications/friends.desktop`
+1. Create a file with a `.desktop` extension in your `~/.local/share/applications` directory, for example `~/.local/share/applications/friends.desktop`
 
 2. In the file, include at least the following lines (template), which tell the desktop how to launch the application:
 
@@ -46,4 +46,3 @@ After saving and exiting the .desktop file, it should automatically and within s
 - [x] season filter
 - [ ] advanced filter options (i.e. based on contents of the description, specific directors etc.)
 - [x] create application launcher icon
-- [ ] write install.sh script for automatic implementation/installation
