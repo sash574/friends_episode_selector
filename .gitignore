@@ -7,7 +7,4 @@ ideas_for_GUI.py
 # irrelevant files
 data/FriendsScripts.csv
 old_images/
-
-# files to add application to Ubuntu applications launcher
 friends_selector.sh
-images/application_icon1.png
