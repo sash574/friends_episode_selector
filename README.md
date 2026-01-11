@@ -40,7 +40,7 @@ Furthermore, the repository contains a template for a shell skript that runs the
 
 After saving and exiting the .desktop file, it should automatically and within seconds appear in the menu system and be searchable.
 
-![Image 3: Application Launcher Icon](images/Application_Icon_Example.png)    
+![Image 3: Application Launcher Icon](images/application_icon_example.png)    
 _Image 3: Application Launcher Icon_
 
 ## To Dos
